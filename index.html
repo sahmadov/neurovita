@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. med. Kanan Hasanov - Neurologe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #74b9ff;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f4f8" width="1200" height="600"/><circle fill="%23ddeef7" cx="200" cy="150" r="80"/><circle fill="%23d1e7f0" cx="800" cy="300" r="120"/><circle fill="%23c4e0e9" cx="1000" cy="100" r="60"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .doctor-image {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .credential-badge {
+            background: #ecf0f1;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #74b9ff;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #74b9ff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doctor-image {
+                max-width: 300px;
+                height: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .service-card,
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <nav class="container">
+        <div class="logo">Dr. med. Kanan Hasanov</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Startseite</a></li>
+            <li><a href="#about">Über mich</a></li>
+            <li><a href="#services">Leistungen</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Expertenneurologische Versorgung</h1>
+            <p>Umfassende Diagnose und Behandlung neurologischer Erkrankungen mit einfühlsamer, patientenorientierter Betreuung.</p>
+            <a href="#contact" class="cta-button">Termin vereinbaren</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">Über Dr. med. Hasanov</h2>
+        <div class="about-content">
+            <div class="doctor-image">
+                👨‍⚕️
+            </div>
+            <div class="about-text">
+                <h3>Facharzt für Neurologie</h3>
+                <p>Dr. med. Kanan Hasanov bringt über 15 Jahre Erfahrung in der Diagnose und Behandlung komplexer neurologischer Erkrankungen mit. Er ist der personalisierten Betreuung verpflichtet, die auf die individuellen Bedürfnisse und Sorgen jedes Patienten eingeht.</p>
+                <p>Mit Spezialisierung auf Bewegungsstörungen, Epilepsie und neurodegenerative Erkrankungen bleibt Dr. Hasanov an der Spitze neurologischer Fortschritte, um seinen Patienten die effektivsten verfügbaren Behandlungen anzubieten.</p>
+                <p>Sein Ansatz verbindet modernste medizinische Expertise mit echter Mitgefühl und gewährleistet, dass jeder Patient nicht nur exzellente medizinische Versorgung erhält, sondern auch die Unterstützung und das Verständnis, die er während seiner neurologischen Gesundheitsreise verdient.</p>
+                <div class="credentials">
+                    <span class="credential-badge">Dr. med. - Charité Berlin</span>
+                    <span class="credential-badge">Neurologie Facharztausbildung</span>
+                    <span class="credential-badge">Bewegungsstörungen Zusatzqualifikation</span>
+                    <span class="credential-badge">Facharzt für Neurologie</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">Spezialisierte Leistungen</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Umfassende neurologische Untersuchung</h3>
+                <p>Gründliche Bewertung neurologischer Symptome einschließlich detaillierter Anamnese, körperlicher Untersuchung und angemessener diagnostischer Tests zur Bestimmung genauer Diagnosen.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Epilepsie & Anfallsbehandlung</h3>
+                <p>Expertendiagnose und -behandlung von Epilepsie und Anfallsleiden mit den neuesten Medikamenten und Überwachungstechnologien für optimale Anfallskontrolle.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Bewegungsstörungen</h3>
+                <p>Spezialisierte Betreuung bei Parkinson-Krankheit, essentiellem Tremor, Dystonie und anderen Bewegungsstörungen mit medizinischen und therapeutischen Interventionen.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧬</div>
+                <h3>Neurodegenerative Erkrankungen</h3>
+                <p>Umfassendes Management von Alzheimer-Krankheit, ALS, Multipler Sklerose und anderen progressiven neurologischen Erkrankungen mit Fokus auf Lebensqualität.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💭</div>
+                <h3>Gedächtnis- & Kognitive Bewertung</h3>
+                <p>Detaillierte Bewertung von Gedächtnisbeschwerden und kognitiven Veränderungen mit neuropsychologischen Tests und Bildgebung des Gehirns bei Bedarf.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3>Kopfschmerz- & Migränebehandlung</h3>
+                <p>Spezialisierte Diagnose und Behandlung von Kopfschmerzstörungen einschließlich Migräne, Spannungskopfschmerzen und Cluster-Kopfschmerzen mit präventiven und akuten Therapien.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Kontakt aufnehmen</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Kontaktinformationen</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Adresse</strong><br>
+                        Medizinisches Zentrum<br>
+                        Unter den Linden 123<br>
+                        10117 Berlin, Deutschland
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <strong>Telefon</strong><br>
+                        +49 30 1234 5678
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <strong>E-Mail</strong><br>
+                        praxis@dr-hasanov-neurologie.de
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <div>
+                        <strong>Sprechzeiten</strong><br>
+                        Mo-Fr: 08:00 - 17:00 Uhr<br>
+                        Sa: 09:00 - 14:00 Uhr<br>
+                        So: Geschlossen
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Termin vereinbaren</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Vor- und Nachname *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail-Adresse *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefonnummer</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Grund des Besuchs</label>
+                        <textarea id="reason" name="reason" rows="4" placeholder="Bitte beschreiben Sie Ihre Symptome oder den Grund für die Konsultation..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Termin anfragen</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Dr. med. Kanan Hasanov</h3>
+                <p>Facharzt für Neurologie mit dem Ziel, außergewöhnliche Betreuung für neurologische Erkrankungen mit Mitgefühl und Expertise zu bieten.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Schnellzugriff</h3>
+                <p><a href="#about">Über Dr. Hasanov</a></p>
+                <p><a href="#services">Leistungen</a></p>
+                <p><a href="#contact">Kontakt & Zeiten</a></p>
+                <p><a href="#">Patientenportal</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Medizinische Informationen</h3>
+                <p><a href="#">Versicherung & Abrechnung</a></p>
+                <p><a href="#">Neue Patientenformulare</a></p>
+                <p><a href="#">Überweisungsinformationen</a></p>
+                <p><a href="#">Notfallkontakte</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dr. med. Kanan Hasanov Neurologische Praxis. Alle Rechte vorbehalten. | Medizinische Website-Design</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const reason = formData.get('reason');
+
+            // Simple validation
+            if (!name || !email) {
+                alert('Bitte füllen Sie alle Pflichtfelder aus.');
+                return;
+            }
+
+            // Simulate form submission
+            alert(`Vielen Dank, ${name}! Ihre Terminanfrage wurde erhalten. Wir werden Sie unter ${email} innerhalb von 24 Stunden kontaktieren, um Ihren Termin zu bestätigen.`);
+
+            // Reset form
+            this.reset();
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+            } else {
+                header.style.backgroundColor = '';
+            }
+        });
+
+        // Animate service cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to service cards
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
