@@ -43,8 +43,14 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .nav-links {
@@ -448,7 +454,9 @@
 <!-- Header -->
 <header>
     <nav class="container">
-        <div class="logo">Dr. med. Kanan Hasanov</div>
+        <div class="logo">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="NeuroVita-Berlin Logo" id="logoImg">
+        </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Startseite</a></li>
             <li><a href="#about">Über mich</a></li>
@@ -633,6 +641,26 @@
 </footer>
 
 <script>
+        // Load the uploaded logo
+        async function loadLogo() {
+            const logoImg = document.getElementById('logoImg');
+
+            // Try to read the uploaded logo file
+            try {
+                const logoData = await window.fs.readFile('assets/images/logo.jpeg');
+                const blob = new Blob([logoData], { type: 'image/jpeg' });
+                const logoUrl = URL.createObjectURL(blob);
+                logoImg.src = logoUrl;
+            } catch (error) {
+                // Fallback to text if logo file is not found
+                console.log('Logo file not found, using text fallback');
+                logoImg.parentElement.innerHTML = '<span style="font-size: 1.5rem; font-weight: bold;">NeuroVita-Berlin</span>';
+            }
+        }
+
+        // Load logo when page loads
+        loadLogo();
+
         // Mobile menu toggle
         const mobileMenu = document.getElementById('mobileMenu');
         const navLinks = document.getElementById('navLinks');
