@@ -17,7 +17,7 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header - Simplified without logo */
 header {
     background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
     color: white;
@@ -35,21 +35,11 @@ nav {
     align-items: center;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 60px;
-    width: auto;
-    filter: brightness(0) invert(1);
-}
-
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0 auto;
 }
 
 .nav-links a {
@@ -76,7 +66,7 @@ nav {
     transition: 0.3s;
 }
 
-/* Hero Section */
+/* Hero Section with Logo */
 .hero {
     background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f4f8" width="1200" height="600"/><circle fill="%23ddeef7" cx="200" cy="150" r="80"/><circle fill="%23d1e7f0" cx="800" cy="300" r="120"/><circle fill="%23c4e0e9" cx="1000" cy="100" r="60"/></svg>');
     background-size: cover;
@@ -89,16 +79,49 @@ nav {
     margin-top: 80px;
 }
 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-logo {
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-logo img {
+    height: 200px;
+    width: 350px;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: white;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: contain;
+}
+
+.hero-logo img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    animation: fadeInUp 1s ease;
+    animation: fadeInUp 1s ease 0.2s both;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero-content p {
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    animation: fadeInUp 1s ease 0.2s both;
+    animation: fadeInUp 1s ease 0.4s both;
+    max-width: 600px;
+    line-height: 1.7;
 }
 
 .cta-button {
@@ -110,7 +133,7 @@ nav {
     border-radius: 50px;
     font-weight: bold;
     transition: all 0.3s ease;
-    animation: fadeInUp 1s ease 0.4s both;
+    animation: fadeInUp 1s ease 0.6s both;
 }
 
 .cta-button:hover {
@@ -392,6 +415,17 @@ footer {
     }
 }
 
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -403,6 +437,7 @@ footer {
         background: #2c3e50;
         flex-direction: column;
         padding: 1rem;
+        margin: 0;
     }
 
     .nav-links.active {
@@ -411,6 +446,13 @@ footer {
 
     .mobile-menu {
         display: flex;
+    }
+
+    .hero-logo img {
+        height: 150px;
+        width: 280px;
+        max-width: 320px;
+        padding: 15px;
     }
 
     .hero-content h1 {
@@ -442,6 +484,13 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .hero-logo img {
+        height: 120px;
+        width: 220px;
+        max-width: 260px;
+        padding: 10px;
+    }
+
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -453,5 +502,10 @@ footer {
     .service-card,
     .contact-form {
         padding: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 1rem;
     }
 }
