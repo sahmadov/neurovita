@@ -1,24 +1,3 @@
-// Load the uploaded logo
-async function loadLogo() {
-    const logoImg = document.getElementById('logoImg');
-
-    // Try to read the uploaded logo file
-    try {
-        const logoData = await window.fs.readFile('assets/images/logo.jpeg');
-        const blob = new Blob([logoData], { type: 'image/jpeg' });
-        const logoUrl = URL.createObjectURL(blob);
-        logoImg.src = logoUrl;
-    } catch (error) {
-        // Fallback to text if logo file is not found
-        console.log('Logo file not found, using text fallback');
-        logoImg.parentElement.innerHTML = '<span style="font-size: 1.5rem; font-weight: bold;">NeuroVita-Berlin</span>';
-    }
-}
-
-// Load logo when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    loadLogo();
-});
 
 // Mobile menu toggle
 const mobileMenu = document.getElementById('mobileMenu');
