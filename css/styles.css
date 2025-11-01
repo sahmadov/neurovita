@@ -925,6 +925,118 @@ footer {
     font-size: 1.3rem;
 }
 
+/* Cookie Consent Banner */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2d5f6d;
+    color: white;
+    padding: 1.5rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    display: none;
+    animation: slideUp 0.5s ease;
+}
+
+.cookie-consent.show {
+    display: block;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.cookie-consent-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cookie-consent h3 {
+    color: #f5f1e8;
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: bold;
+}
+
+.cookie-consent p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cookie-consent a {
+    color: #f5f1e8;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.cookie-consent a:hover {
+    color: white;
+}
+
+.cookie-consent-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.cookie-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cookie-btn-accept {
+    background: #f5f1e8;
+    color: #2d5f6d;
+    border: 2px solid #f5f1e8;
+}
+
+.cookie-btn-accept:hover {
+    background: white;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive cookie banner */
+@media (max-width: 768px) {
+    .cookie-consent {
+        padding: 1.5rem 1rem;
+    }
+
+    .cookie-consent h3 {
+        font-size: 1.2rem;
+    }
+
+    .cookie-consent p {
+        font-size: 0.95rem;
+    }
+
+    .cookie-consent-buttons {
+        flex-direction: column;
+    }
+
+    .cookie-btn {
+        width: 100%;
+    }
+}
+
 /* Responsive styles for impressum */
 @media (max-width: 768px) {
     .impressum-block {

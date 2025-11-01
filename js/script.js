@@ -1,3 +1,22 @@
+// Cookie Consent Banner
+document.addEventListener('DOMContentLoaded', function() {
+    const cookieConsent = document.getElementById('cookieConsent');
+    const acceptCookies = document.getElementById('acceptCookies');
+
+    // Check if user has already accepted cookies
+    if (!localStorage.getItem('cookiesAccepted')) {
+        // Show banner after a short delay
+        setTimeout(() => {
+            cookieConsent.classList.add('show');
+        }, 1000);
+    }
+
+    // Handle accept button
+    acceptCookies.addEventListener('click', function() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieConsent.classList.remove('show');
+    });
+});
 
 // Mobile menu toggle
 const mobileMenu = document.getElementById('mobileMenu');
