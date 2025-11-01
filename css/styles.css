@@ -845,6 +845,115 @@ footer {
     transform: translateX(5px);
 }
 
+/* Impressum Page Styles */
+.impressum-section {
+    padding: 100px 0;
+    background: #f5f1e8;
+}
+
+.impressum-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.impressum-block {
+    background: white;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid #2d5f6d;
+    box-shadow: 0 2px 10px rgba(45, 95, 109, 0.1);
+}
+
+.impressum-block h2 {
+    color: #2d5f6d;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.impressum-block h3 {
+    color: #2d5f6d;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.impressum-block p {
+    color: #000;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.impressum-block a {
+    color: #2d5f6d;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.impressum-block a:hover {
+    color: #1a4a54;
+}
+
+.impressum-block strong {
+    color: #2d5f6d;
+    font-weight: 600;
+}
+
+.impressum-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.impressum-list li {
+    padding: 0.5rem 0 0.5rem 2rem;
+    position: relative;
+    color: #000;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.impressum-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0.5rem;
+    color: #2d5f6d;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Responsive styles for impressum */
+@media (max-width: 768px) {
+    .impressum-block {
+        padding: 2rem;
+    }
+
+    .impressum-block h2 {
+        font-size: 1.4rem;
+    }
+
+    .impressum-block h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .impressum-block {
+        padding: 1.5rem;
+    }
+
+    .impressum-block h2 {
+        font-size: 1.3rem;
+    }
+
+    .impressum-block p {
+        font-size: 1rem;
+    }
+}
+
 /* Responsive styles for articles */
 @media (max-width: 768px) {
     .article-card {
