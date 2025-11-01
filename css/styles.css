@@ -70,16 +70,17 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 3rem;
+    gap: 1.5rem;
     margin: 0 auto;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -589,16 +590,42 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #2c3e50;
+        background: #2d5f6d;
         flex-direction: column;
         padding: 1rem;
         margin: 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        font-size: 1.1rem;
     }
 
     .nav-links.active {
@@ -658,6 +685,19 @@ footer {
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 1rem 0;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .hero {
+        padding: 60px 15px;
+        margin-top: 80px;
+    }
+
     .hero-logo img {
         height: 120px;
         width: 220px;
@@ -666,11 +706,11 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .service-card,
@@ -680,6 +720,164 @@ footer {
 
     .hero-content p {
         font-size: 1rem;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+
+/* Articles/Ratgeber Page Styles */
+.articles-section {
+    padding: 100px 0;
+    background: #f5f1e8;
+}
+
+.article-card {
+    background: white;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 15px;
+    border: 3px solid #2d5f6d;
+    box-shadow: 0 4px 15px rgba(45, 95, 109, 0.1);
+    transition: all 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(45, 95, 109, 0.2);
+    border-color: #1a4a54;
+}
+
+.article-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.article-card h2 {
+    color: #2d5f6d;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.article-card p {
+    color: #000;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.article-card strong {
+    color: #2d5f6d;
+    font-weight: 600;
+}
+
+.article-steps {
+    background: #f5f1e8;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    border-left: 5px solid #2d5f6d;
+}
+
+.article-steps p {
+    margin-bottom: 1rem;
+}
+
+.article-steps p:last-child {
+    margin-bottom: 0;
+}
+
+.article-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.article-list li {
+    padding: 0.8rem 0 0.8rem 2.5rem;
+    position: relative;
+    color: #000;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.article-list li:last-child {
+    border-bottom: none;
+}
+
+.article-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2d5f6d;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.article-cta {
+    display: inline-block;
+    background: #2d5f6d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-top: 1rem;
+    border: 3px solid #2d5f6d;
+    transition: all 0.3s ease;
+}
+
+.article-cta:hover {
+    background: white;
+    color: #2d5f6d;
+    transform: translateX(5px);
+}
+
+/* Responsive styles for articles */
+@media (max-width: 768px) {
+    .article-card {
+        padding: 2rem;
+    }
+
+    .article-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .article-card p {
+        font-size: 1rem;
+    }
+
+    .article-icon {
+        font-size: 2.5rem;
+    }
+
+    .article-steps {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-card {
+        padding: 1.5rem;
+    }
+
+    .article-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .article-icon {
+        font-size: 2rem;
     }
 }
