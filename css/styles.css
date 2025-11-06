@@ -549,6 +549,31 @@ section {
     color: #2d5f6d;
 }
 
+/* Map Section */
+.map-section {
+    margin-top: 5rem;
+}
+
+.map-section h3 {
+    color: #000;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.map-container {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid #2d5f6d;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    display: block;
+}
+
 /* Footer */
 footer {
     background: #1a4a54;
