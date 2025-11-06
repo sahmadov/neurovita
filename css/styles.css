@@ -20,14 +20,15 @@ body {
 
 /* Header - Simplified without logo */
 header {
-    background: #2d5f6d;
-    color: white;
+    background: linear-gradient(135deg, #dcd6c8 0%, #e8e3d6 50%, #f0ebe0 100%);
+    color: #3d3d3d;
     padding: 2rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 5px solid #1a4a54;
+    border-bottom: 3px solid #b8b0a0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
 nav {
@@ -55,16 +56,18 @@ nav {
 }
 
 .logo-title {
-    color: #f5f1e8;
+    color: #3d3d3d;
     font-size: 1.2rem;
     font-weight: bold;
     line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .logo-subtitle {
-    color: #f5f1e8;
+    color: #5a5a5a;
     font-size: 0.9rem;
     line-height: 1.2;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .nav-links {
@@ -75,18 +78,22 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: #3d3d3d;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 600;
     padding: 0.5rem 0.8rem;
     white-space: nowrap;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .nav-links a:hover {
-    color: #f5f1e8;
-    background: rgba(255,255,255,0.15);
-    border-radius: 5px;
+    color: #2d2d2d;
+    background: rgba(184, 176, 160, 0.3);
+    border-radius: 8px;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-menu {
@@ -98,7 +105,7 @@ nav {
 .mobile-menu span {
     width: 25px;
     height: 3px;
-    background: white;
+    background: #3d3d3d;
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -722,12 +729,13 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background: #2d5f6d;
+        background: linear-gradient(180deg, #dcd6c8 0%, #e8e3d6 100%);
         flex-direction: column;
         padding: 1rem;
         margin: 0;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         z-index: 999;
+        border-bottom: 3px solid #b8b0a0;
     }
 
     .nav-links li {
