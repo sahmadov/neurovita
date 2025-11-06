@@ -547,6 +547,82 @@ section {
     border-left: 5px solid #2d5f6d;
 }
 
+.documents-checklist {
+    max-width: 900px;
+    margin: 4rem auto 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    border: 3px solid #2d5f6d;
+}
+
+.documents-checklist h3 {
+    color: #2d5f6d;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.checklist-intro {
+    text-align: center;
+    color: #000;
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.checklist-section {
+    margin-bottom: 2.5rem;
+}
+
+.checklist-section:last-child {
+    margin-bottom: 0;
+}
+
+.checklist-section h4 {
+    color: #2d5f6d;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #2d5f6d;
+}
+
+.checklist-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checklist-items li {
+    padding: 1rem 0 1rem 3rem;
+    position: relative;
+    color: #000;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.checklist-items li:last-child {
+    border-bottom: none;
+}
+
+.checklist-items li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2d5f6d;
+    font-weight: bold;
+    font-size: 1.5rem;
+    top: 1rem;
+}
+
+.checklist-items.optional li::before {
+    content: '○';
+    font-size: 1.3rem;
+}
+
 /* Contact Section */
 .contact {
     background: #f8f9fa;
@@ -1257,6 +1333,32 @@ footer {
         padding: 1.5rem;
         font-size: 0.95rem;
     }
+
+    .documents-checklist {
+        padding: 2rem;
+    }
+
+    .documents-checklist h3 {
+        font-size: 1.5rem;
+    }
+
+    .checklist-intro {
+        font-size: 1rem;
+    }
+
+    .checklist-section h4 {
+        font-size: 1.2rem;
+    }
+
+    .checklist-items li {
+        font-size: 1rem;
+        padding: 0.8rem 0 0.8rem 2.5rem;
+    }
+
+    .checklist-items li::before {
+        font-size: 1.3rem;
+        top: 0.8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1275,5 +1377,31 @@ footer {
     .download-button {
         padding: 12px 20px;
         font-size: 0.95rem;
+    }
+
+    .documents-checklist {
+        padding: 1.5rem;
+    }
+
+    .documents-checklist h3 {
+        font-size: 1.3rem;
+    }
+
+    .checklist-intro {
+        font-size: 0.95rem;
+    }
+
+    .checklist-section h4 {
+        font-size: 1.1rem;
+    }
+
+    .checklist-items li {
+        font-size: 0.95rem;
+        padding: 0.7rem 0 0.7rem 2rem;
+    }
+
+    .checklist-items li::before {
+        font-size: 1.2rem;
+        top: 0.7rem;
     }
 }
