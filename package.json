@@ -1,0 +1,13 @@
+{
+  "name": "neurovita-berlin",
+  "version": "1.0.0",
+  "description": "NeuroVita Berlin - Dr. med. Kanan Hasanov Neurologische Praxis",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "private": true
+}

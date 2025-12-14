@@ -43,7 +43,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     // Get form data
@@ -59,11 +59,48 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         return;
     }
 
-    // Simulate form submission
-    alert(`Vielen Dank, ${name}! Ihre Terminanfrage wurde erhalten. Wir werden Sie unter ${email} innerhalb von 24 Stunden kontaktieren, um Ihren Termin zu bestätigen.`);
+    // Disable submit button and show loading state
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Wird gesendet...';
 
-    // Reset form
-    this.reset();
+    try {
+        // Send data to API
+        const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                phone,
+                reason
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // Success
+            alert(`Vielen Dank, ${name}! Ihre Terminanfrage wurde erhalten. Wir werden Sie unter ${email} innerhalb von 24 Stunden kontaktieren, um Ihren Termin zu bestätigen.`);
+            // Reset form
+            this.reset();
+        } else {
+            // Error from server
+            alert('Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch.');
+            console.error('Server error:', data);
+        }
+    } catch (error) {
+        // Network error
+        alert('Es gab ein Problem beim Senden Ihrer Nachricht. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
+        console.error('Network error:', error);
+    } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    }
 });
 
 // Add scroll effect to header
