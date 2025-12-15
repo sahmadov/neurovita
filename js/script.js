@@ -1,3 +1,45 @@
+// Notification System
+function showNotification(type, title, message, duration = 5000) {
+    // Remove any existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+
+    // Set icon based on type
+    let icon = '';
+    if (type === 'success') icon = '✓';
+    if (type === 'error') icon = '✕';
+    if (type === 'warning') icon = '⚠';
+
+    notification.innerHTML = `
+        <div class="notification-icon">${icon}</div>
+        <div class="notification-content">
+            <div class="notification-title">${title}</div>
+            <div class="notification-message">${message}</div>
+        </div>
+        <button class="notification-close" onclick="this.parentElement.remove()">×</button>
+    `;
+
+    // Add to body
+    document.body.appendChild(notification);
+
+    // Show notification with animation
+    setTimeout(() => notification.classList.add('show'), 10);
+
+    // Auto-hide after duration
+    if (duration > 0) {
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 400);
+        }, duration);
+    }
+}
+
 // Cookie Consent Banner
 document.addEventListener('DOMContentLoaded', function() {
     const cookieConsent = document.getElementById('cookieConsent');
@@ -55,7 +97,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
     // Simple validation
     if (!name || !email) {
-        alert('Bitte füllen Sie alle Pflichtfelder aus.');
+        showNotification('warning', 'Fehlende Angaben', 'Bitte füllen Sie alle Pflichtfelder aus (Name und E-Mail).');
         return;
     }
 
@@ -84,17 +126,32 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
         if (response.ok) {
             // Success
-            alert(`Vielen Dank, ${name}! Ihre Terminanfrage wurde erhalten. Wir werden Sie unter ${email} innerhalb von 24 Stunden kontaktieren, um Ihren Termin zu bestätigen.`);
+            showNotification(
+                'success',
+                'Terminanfrage erfolgreich gesendet!',
+                `Vielen Dank, ${name}! Wir haben Ihre Anfrage erhalten und werden Sie unter ${email} innerhalb von 24 Stunden kontaktieren.`,
+                7000
+            );
             // Reset form
             this.reset();
         } else {
             // Error from server
-            alert('Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch.');
+            showNotification(
+                'error',
+                'Fehler beim Senden',
+                'Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch unter 030 5436363.',
+                8000
+            );
             console.error('Server error:', data);
         }
     } catch (error) {
         // Network error
-        alert('Es gab ein Problem beim Senden Ihrer Nachricht. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
+        showNotification(
+            'error',
+            'Verbindungsfehler',
+            'Es gab ein Problem beim Senden Ihrer Nachricht. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.',
+            8000
+        );
         console.error('Network error:', error);
     } finally {
         // Re-enable submit button
