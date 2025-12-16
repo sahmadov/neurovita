@@ -119,7 +119,7 @@ nav {
     text-align: center;
     color: white;
     margin-top: 100px;
-    padding: 80px 20px;
+    padding: 80px 20px 60px;
 }
 
 .hero-content {
@@ -153,21 +153,21 @@ nav {
 }
 
 .hero-content h1 {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     font-weight: bold;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
     max-width: 900px;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 .hero-content p:last-of-type {
-    margin-bottom: 3rem;
+    margin-bottom: 0;
 }
 
 .cta-button {
@@ -186,6 +186,46 @@ nav {
     background: #fff;
     color: #2d5f6d;
     border-color: #1a4a54;
+}
+
+/* Philosophy Pillars in Hero */
+.philosophy-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.pillar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.pillar:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pillar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: white;
+    font-weight: 700;
+}
+
+.pillar p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
 }
 
 /* Sections */
@@ -846,11 +886,29 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 1.25rem;
     }
 
     .hero-content p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+        line-height: 1.55;
+    }
+
+    .philosophy-pillars {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .pillar {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .pillar h3 {
+        font-size: 1.2rem;
     }
 
     .about-content {
@@ -908,7 +966,9 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
 
     .section-title {
@@ -921,13 +981,34 @@ footer {
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.95rem;
         padding: 0 0.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
     }
 
     .cta-button {
         padding: 15px 30px;
         font-size: 1rem;
+    }
+
+    .philosophy-pillars {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
+    .pillar {
+        padding: 1.5rem 1rem;
+    }
+
+    .pillar h3 {
+        font-size: 1.1rem;
+    }
+
+    .pillar p {
+        font-size: 0.9rem;
     }
 
     section {
