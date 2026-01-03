@@ -692,12 +692,22 @@ section {
 
 .contact-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 2.5rem;
     padding: 1.5rem;
     background: white;
     border-radius: 10px;
     border: 2px solid #ddd;
+}
+
+.contact-item.offene-sprechstunde {
+    background: #f0f8ff;
+    border: 2px solid #2d5f6d;
+    border-left: 5px solid #2d5f6d;
+}
+
+.contact-item.offene-sprechstunde .contact-icon {
+    background: #1a4a54;
 }
 
 .contact-icon {
@@ -1009,6 +1019,23 @@ footer {
 
     .pillar p {
         font-size: 0.9rem;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        padding: 1.25rem;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .contact-item.offene-sprechstunde em {
+        font-size: 0.85rem;
     }
 
     section {
