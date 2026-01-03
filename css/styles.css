@@ -752,6 +752,11 @@ section {
     font-size: 1rem;
 }
 
+.form-group textarea {
+    min-height: 280px;
+    resize: vertical;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
