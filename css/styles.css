@@ -677,6 +677,80 @@ section {
     line-height: 1.8;
 }
 
+/* Hausarztvermittlung Notice Box */
+.hausarzt-notice {
+    background: #e8f4f8;
+    border-left: 5px solid #2d5f6d;
+    border-radius: 10px;
+    padding: 2.5rem;
+    margin-bottom: 4rem;
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hausarzt-notice-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.hausarzt-notice-content h3 {
+    color: #2d5f6d;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.hausarzt-subtitle {
+    color: #1a4a54;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem !important;
+}
+
+.hausarzt-notice-content p {
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.hausarzt-requirements {
+    background: rgba(45, 95, 109, 0.08);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.hausarzt-requirements p {
+    margin-bottom: 1rem;
+    color: #1a4a54;
+}
+
+.hausarzt-requirements ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.hausarzt-requirements li {
+    padding: 0.75rem 0 0.75rem 2.5rem;
+    position: relative;
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.hausarzt-requirements li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2d5f6d;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1042,6 +1116,37 @@ footer {
 
     .contact-item.offene-sprechstunde em {
         font-size: 0.85rem;
+    }
+
+    .hausarzt-notice {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .hausarzt-notice-icon {
+        font-size: 2.5rem;
+    }
+
+    .hausarzt-notice-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .hausarzt-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .hausarzt-notice-content p {
+        font-size: 0.95rem;
+    }
+
+    .hausarzt-requirements {
+        padding: 1rem;
+    }
+
+    .hausarzt-requirements li {
+        font-size: 0.95rem;
+        padding-left: 2rem;
     }
 
     section {
